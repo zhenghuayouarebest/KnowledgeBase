@@ -1,0 +1,25 @@
+{
+  "name": "personal-knowledge-base",
+  "version": "1.0.0",
+  "description": "个人技术知识库",
+  "main": "index.js",
+  "scripts": {
+    "dev": "quartz dev",
+    "build": "quartz build",
+    "serve": "quartz serve"
+  },
+  "keywords": [
+    "obsidian",
+    "quartz",
+    "knowledge-base",
+    "ai"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "dependencies": {
+    "@types/node": "^18.0.0",
+    "marked": "^18.0.0",
+    "quartz": "^0.0.1",
+    "typescript": "^5.0.0"
+  }
+}
