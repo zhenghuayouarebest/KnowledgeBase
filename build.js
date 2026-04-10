@@ -2,7 +2,6 @@
 
 const fs = require('fs');
 const path = require('path');
-const { marked } = require('marked');
 
 // 配置
 const config = {
@@ -35,7 +34,7 @@ function readMarkdownFiles(dir) {
 }
 
 // 解析 Markdown 文件
-function parseMarkdownFile(filePath) {
+function parseMarkdownFile(filePath, marked) {
   const content = fs.readFileSync(filePath, 'utf8');
   
   // 解析 YAML frontmatter
@@ -678,15 +677,18 @@ function generatePage(notes) {
 }
 
 // 主函数
-function main() {
+async function main() {
   console.log('开始构建静态网站...');
+  
+  // 动态导入 marked
+  const { marked } = await import('marked');
   
   // 读取 Markdown 文件
   const markdownFiles = readMarkdownFiles(config.contentDir);
   console.log(`找到 ${markdownFiles.length} 个 Markdown 文件`);
   
   // 解析文件
-  const notes = markdownFiles.map(parseMarkdownFile);
+  const notes = markdownFiles.map(filePath => parseMarkdownFile(filePath, marked));
   
   // 生成 HTML
   const html = generatePage(notes);
