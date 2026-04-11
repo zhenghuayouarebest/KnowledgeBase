@@ -7,7 +7,7 @@ const path = require('path');
 const config = {
   contentDir: './content',
   outputDir: './public',
-  siteTitle: '个人技术知识库',
+  siteTitle: '技术知识库',
   baseUrl: 'https://your-domain.com'
 };
 
